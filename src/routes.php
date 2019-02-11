@@ -56,48 +56,6 @@ $app->get('/friends', function (Request $request, Response $response, array $arg
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $app->get('/news', function (Request $request, Response $response, array $args) { 
 	$news1 = array('description' => "6 февраля 2019 года 4 класс Б Г в рамках изучения ТД темы PYP Где мы во времени и пространстве посетил  Российский национальный музей музыки (ранее им. М.Глинки). Экскурсия называлась Ритмы мира. Ребята узнали много нового об инструментах разных народов, которые создают ритм - основу любой музыки.", 'name' => 'Экскурсия в музей музыки — 4 БГ класс', 'date' => ' 6 февраля 2019');
 	$news2 = array('description' => 'Сегодня в нашей школе была встреча с замечательными и очень смелыми людьми.', 'name' => 'Встреча с центром "Лидер"', 'date' => '???');
@@ -106,9 +64,65 @@ $app->get('/news', function (Request $request, Response $response, array $args) 
 
 	$result = array($news1, $news2, $news3, $news4);
 	return $response->withJson($result);
+});
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// На вход передаются параметры x1 и y1, x2 и y2 - точки в пространстве Необходимо вычислить расстояние между ними и вернуть
+$app->get('/xy', function (Request $request, Response $response, array $args) {
+	$params = request->getQueryParams();
+	
+$ac = $params['x1'] - $params['x2'];
+$ab = $params['y2'] - $params['y1'];
+$result = $ab * $ab * $ac * $ac;
+return $response->withJson($result, 200);
 
 });
+
 
 ?>
