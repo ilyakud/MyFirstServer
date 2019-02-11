@@ -115,7 +115,7 @@ $app->get('/news', function (Request $request, Response $response, array $args) 
 
 // На вход передаются параметры x1 и y1, x2 и y2 - точки в пространстве Необходимо вычислить расстояние между ними и вернуть
 $app->get('/xy', function (Request $request, Response $response, array $args) {
-	$params = request->getQueryParams();
+	$params = $request->getQueryParams();
 	$ac = $params['x1'] - $params['x2'];
 	$ab = $params['y2'] - $params['y1'];
 	$result = $ab * $ab * $ac * $ac;
