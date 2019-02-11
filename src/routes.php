@@ -120,6 +120,7 @@ $app->get('/xy', function (Request $request, Response $response, array $args) {
 $ac = $params['x1'] - $params['x2'];
 $ab = $params['y2'] - $params['y1'];
 $result = $ab * $ab * $ac * $ac;
+echo $result;
 return $response->withJson($result, 200);
 
 });
