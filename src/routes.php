@@ -105,6 +105,7 @@ $app->get('/news', function (Request $request, Response $response, array $args) 
 	$news4 = array('description' => 'В январе проект "Профессии наших родителей"  продолжила Евгения Егармина, мама Даны Егарминой. Она - куратор мультиформатного проекта-презентации технологий и сообщества резидентов Сколково с рабочим названием «Made in Skolkovo».', 'name' => 'Проект "Профессии наших родителей"', 'date' => '???');
 
 	$result = array($news1, $news2, $news3, $news4);
+	return $response->withJson($result);
 
 
 
