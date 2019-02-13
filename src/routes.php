@@ -66,62 +66,38 @@ $app->get('/news', function (Request $request, Response $response, array $args) 
 	return $response->withJson($result);
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // На вход передаются параметры x1 и y1, x2 и y2 - точки в пространстве Необходимо вычислить расстояние между ними и вернуть
 $app->get('/xy', function (Request $request, Response $response, array $args) {
 	$params = $request->getQueryParams();
 	$ac = $params['x1'] - $params['x2'];
 	$ab = $params['y2'] - $params['y1'];
-	$result = $ab * $ab * $ac * $ac;
+	$result = $ab * $ab + $ac * $ac;
 	$r = array("q" => $result);
 	return $response->withJson($r, 200);
 
+});
+
+// user1 123456, admin admin, user4 543210
+// , , 
+$app->get('bank', function(Request $request, Response $response, array $args){
+	$params = $request->getQueryParams();
+	if ($params["login"] == "user1" && $params["password"] == "123456")
+	{
+		$result = array("token" => "sdASD6sadj812jSDAas8a6aSD");
+	}
+	else if ($params["login"] == "admin" && $params["password"] == "admin")
+	{
+		$result = array("token" => "kasjhkaSADGLy7ASDjAS8786ASDsdsa");
+	}
+	else if ($params["login"] == "user4" && $params["password"] == "543210")
+	{
+		$result = array("token" => "ajshgSAD7A668asdDs212sDasf");
+	}
+	else 
+	{
+		$result = array("error"=>"Fatal error, Invalid user");
+	}
+	return $response->whithJson($result, 200);
 });
 
 
