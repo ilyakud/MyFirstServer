@@ -97,7 +97,7 @@ $app->get('/login', function(Request $request, Response $response, array $args){
 	{
 		$result = array("error"=>"Fatal error, Invalid user");
 	}
-	return $response->whithJson($result, 200);
+	return $response->withJson($result, 200);
 });
 
 
