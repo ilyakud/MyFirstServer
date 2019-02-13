@@ -79,7 +79,7 @@ $app->get('/xy', function (Request $request, Response $response, array $args) {
 
 // user1 123456, admin admin, user4 543210
 // , , 
-$app->get('bank', function(Request $request, Response $response, array $args){
+$app->get('/login', function(Request $request, Response $response, array $args){
 	$params = $request->getQueryParams();
 	if ($params["login"] == "user1" && $params["password"] == "123456")
 	{
