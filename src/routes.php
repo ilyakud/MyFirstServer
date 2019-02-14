@@ -78,7 +78,7 @@ $app->get('/xy', function (Request $request, Response $response, array $args) {
 });
 
 // user1 123456, admin admin, user4 543210
-$app->get('/login', function(Request $request, Response $response, array $args) {
+$app->get('/login', function (Request $request, Response $response, array $args) {
 	$params = $request->getQueryParams();
 	if ($params["login"] == "user1" && $params["password"] == "123456")
 	{
@@ -101,6 +101,23 @@ $app->get('/login', function(Request $request, Response $response, array $args) 
 		$code = 400;
 	}
 	return $response->withJson($result, $code);
+});
+
+$app->get('/getDebt', function (Request $request, Response $response, array $args) {
+	$params = $request->getQueryParams();
+	if ($params["token"] == "sdASD6sadj812jSDAas8a6aSD")
+	{
+		$result = array("title" => "car", "price" => "5600000");
+	}
+	else if ($params["token"] == "kasjhkaSADGLy7ASDjAS8786ASDsdsa")
+	{
+		$result = array("title" => "home", "price" => "30000000");
+	}
+	else if ($params["token"] == "sdASD6sadj812jSDAas8a6aSD")
+	{
+		$result = array("title" => "General", "price" => "1000");
+	}
+	return $response->withJson($result, 200);
 });
 
 ?>
