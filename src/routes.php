@@ -84,21 +84,40 @@ $app->get('/login', function(Request $request, Response $response, array $args){
 	if ($params["login"] == "user1" && $params["password"] == "123456")
 	{
 		$result = array("token" => "sdASD6sadj812jSDAas8a6aSD");
+		$code = 200;
 	}
 	else if ($params["login"] == "admin" && $params["password"] == "admin")
 	{
 		$result = array("token" => "kasjhkaSADGLy7ASDjAS8786ASDsdsa");
+		$code = 200;
 	}
 	else if ($params["login"] == "user4" && $params["password"] == "543210")
 	{
 		$result = array("token" => "ajshgSAD7A668asdDs212sDasf");
+		$code = 200;
 	}
 	else 
 	{
 		$result = array("error"=>"Fatal error, Invalid user");
+		$code = 400;
 	}
-	return $response->withJson($result, 200);
+	return $response->withJson($result, $codegetDebt);
 });
 
+$app->get('/getDebt', function(Request $request, Response $response, array $args){
+	$params = $request->getQueryParams();
+	if ($params["token"] == "sdASD6sadj812jSDAas8a6aSD")
+	{
+		$result = array("title" => "car", "price" => "5600000")
+	}
+	else if ($params["token"] == "kasjhkaSADGLy7ASDjAS8786ASDsdsa")
+	{
+		$result = array("title" => "home", "price" => "30000000")
+	}
+	else if ($params["token"] == "sdASD6sadj812jSDAas8a6aSD")
+	{
+		$result = array("title" => "General", "price" => "1000")
+	}
+}
 
 ?>
