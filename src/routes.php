@@ -78,8 +78,7 @@ $app->get('/xy', function (Request $request, Response $response, array $args) {
 });
 
 // user1 123456, admin admin, user4 543210
-// , , 
-$app->get('/login', function(Request $request, Response $response, array $args){
+$app->get('/login', function(Request $request, Response $response, array $args) {
 	$params = $request->getQueryParams();
 	if ($params["login"] == "user1" && $params["password"] == "123456")
 	{
@@ -98,10 +97,10 @@ $app->get('/login', function(Request $request, Response $response, array $args){
 	}
 	else 
 	{
-		$result = array("error"=>"Fatal error, Invalid user");
+		$result = array("error" => "Fatal error, Invalid user");
 		$code = 400;
 	}
-	return $response->withJson($result, $code);
+	return $response->withJson($result, 200);
 });
 
 $app->get('/getDebt', function(Request $request, Response $response, array $args){
