@@ -100,7 +100,7 @@ $app->get('/login', function(Request $request, Response $response, array $args) 
 		$result = array("error" => "Fatal error, Invalid user");
 		$code = 400;
 	}
-	return $response->withJson($result, 200);
+	return $response->withJson($result, $code);
 });
 
 $app->get('/getDebt', function(Request $request, Response $response, array $args){
@@ -117,6 +117,6 @@ $app->get('/getDebt', function(Request $request, Response $response, array $args
 	{
 		$result = array("title" => "General", "price" => "1000")
 	}
-}
+});
 
 ?>
