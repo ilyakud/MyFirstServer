@@ -107,15 +107,22 @@ $app->get('/getDebt', function (Request $request, Response $response, array $arg
 	$params = $request->getQueryParams();
 	if ($params["token"] == "sdASD6sadj812jSDAas8a6aSD")
 	{
-		$result = array("title" => "car", "price" => "5600000");
+		$dept1 = array("title" => "car", "price" => "5600000",);
+		$dept2 = array("title" => "home", "price" => "30000000");
+		$result = array($dept2, $dept1);
 	}
 	else if ($params["token"] == "kasjhkaSADGLy7ASDjAS8786ASDsdsa")
 	{
-		$result = array("title" => "home", "price" => "30000000");
+		$dept2 = array("title" => "home", "price" => "30000000");
+		$dept1 = array("title" => "car", "price" => "5600000",);
+		$result = array($dept2, $dept1);
 	}
 	else if ($params["token"] == "sdASD6sadj812jSDAas8a6aSD")
 	{
-		$result = array("title" => "General", "price" => "1000");
+		$dept3 = array("title" => "General", "price" => "1000");
+		$dept2 = array("title" => "home", "price" => "30000000");
+		$dept1 = array("title" => "car", "price" => "5600000",);
+		$result = array($dept3 ,$dept2, $dept1);
 	}
 	return $response->withJson($result, 200);
 });
