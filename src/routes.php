@@ -129,7 +129,7 @@ $app->get('/getDebt', function (Request $request, Response $response, array $arg
 	}
 	else 
 	{
-		$result = array("title" => "Error")
+		$result = array("title" => "Error");
 		$code = 400;
 	}
 	return $response->withJson($result, $code);
