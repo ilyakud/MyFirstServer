@@ -110,12 +110,14 @@ $app->get('/getDebt', function (Request $request, Response $response, array $arg
 		$dept1 = array("title" => "car", "price" => "5600000",);
 		$dept2 = array("title" => "home", "price" => "30000000");
 		$result = array($dept2, $dept1);
+		$code = 200;
 	}
 	else if ($params["token"] == "kasjhkaSADGLy7ASDjAS8786ASDsdsa")
 	{
 		$dept2 = array("title" => "home", "price" => "30000000");
 		$dept1 = array("title" => "car", "price" => "5600000",);
 		$result = array($dept2, $dept1);
+		$code = 200;
 	}
 	else if ($params["token"] == "sdASD6sadj812jSDAas8a6aSD")
 	{
@@ -123,8 +125,13 @@ $app->get('/getDebt', function (Request $request, Response $response, array $arg
 		$dept2 = array("title" => "home", "price" => "30000000");
 		$dept1 = array("title" => "car", "price" => "5600000",);
 		$result = array($dept3 ,$dept2, $dept1);
+		$code = 200;
 	}
-	return $response->withJson($result, 200);
+	else 
+	{
+		$code = 400;
+	}
+	return $response->withJson($result, $code);
 });
 
 ?>
