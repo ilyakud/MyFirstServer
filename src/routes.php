@@ -284,7 +284,7 @@ fullDescription: "Подводим итоги изрядно затянувше�
 link: "https://ostrov.press/2018/12/09/fotokonkurs18/" ,
 name: "Результаты Фотоконкурса 2018" ) */
 
-$result = array(n12,n10,n11,n9,n8,n1,n2,n3,n4,n5,n6,n7);
+$result = array($n12,$n10,$n11,$n9,$n8,$n1,$n2,$n3,$n4,$n5,$n6,$n7);
 return $response->withJson($result, 200);
 
 //n23,n22,n21,n20,n19,n18,n17,n16,n15,n14,n13,
